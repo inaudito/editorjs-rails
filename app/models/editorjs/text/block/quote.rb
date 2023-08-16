@@ -11,6 +11,9 @@ class Editorjs::Text::Block::Quote < Editorjs::Text::Block
   end
 
   def to_html
-    tag.blockquote(@text.html_safe)
+    tag.blockquote do
+      concat @text.html_safe
+      concat tag.cite(@caption.html_safe)
+    end
   end
 end
