@@ -9,10 +9,12 @@ class Editorjs::Text::Block
     @data = options["data"]
   end
 
-  def to_markdown
+  def to_html
   end
 
   def helpers
     Editorjs::ApplicationController.helpers
   end
+
+  delegate_missing_to :helpers
 end

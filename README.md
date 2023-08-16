@@ -49,10 +49,10 @@ Then use the `editorjs_text_area` form helper in your views:
 <% end %>
 ```
 
-Use `to_markdown` to render your content:
+Use `to_html` to render your content:
 
-```ruby
-@my_model.my_awesome_text.to_markdown
+```erb
+<%= @my_model.my_awesome_text.to_html %>
 ```
 
 ## Adding plugins
@@ -81,8 +81,8 @@ class ParagraphBlock < Editorjs::Text::Block
     @text = @data["text"]
   end
 
-  def to_markdown
-    helpers.tag.p(@text.html_safe)
+  def to_html
+    tag.p(@text.html_safe)
   end
 end
 

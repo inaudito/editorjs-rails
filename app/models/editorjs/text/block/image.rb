@@ -10,7 +10,12 @@ class Editorjs::Text::Block::Image < Editorjs::Text::Block
     @url = @data.dig("file", "url")
   end
 
-  def to_markdown
-    "![#{@caption}](#{@url})"
+  def to_html
+    caption = strip_tags(@caption)
+
+    tag.figure do
+      concat image_tag(@url, alt: caption, title: caption, width: "100%")
+      concat tag.figcaption(caption)
+    end
   end
 end

@@ -10,7 +10,7 @@ class Editorjs::Text::Block::List < Editorjs::Text::Block
     @style = @data["style"]
   end
 
-  def to_markdown
+  def to_html
     @items.map { |options| render_list([options]) }.join
   end
 
@@ -19,12 +19,12 @@ class Editorjs::Text::Block::List < Editorjs::Text::Block
   def render_list(items)
     return "" unless items.present?
 
-    helpers.content_tag(@style == "ordered" ? "ol" : "ul") do
+    content_tag(@style == "ordered" ? "ol" : "ul") do
       items.map { |item_options| render_list_item(item_options["content"], item_options["items"]) }.join.html_safe
     end
   end
 
   def render_list_item(content, items = [])
-    helpers.tag.li { (content + render_list(items)).html_safe }
+    tag.li { (content + render_list(items)).html_safe }
   end
 end

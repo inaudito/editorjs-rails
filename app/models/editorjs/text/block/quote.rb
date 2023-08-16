@@ -10,7 +10,7 @@ class Editorjs::Text::Block::Quote < Editorjs::Text::Block
     @caption = @data["caption"]
   end
 
-  def to_markdown
-    helpers.tag.blockquote(@text.html_safe)
+  def to_html
+    tag.blockquote(@text.html_safe)
   end
 end

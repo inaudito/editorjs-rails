@@ -52,8 +52,8 @@ class Editorjs::Text::Content
     end
   end
 
-  def to_markdown
-    blocks.map(&:to_markdown).compact_blank.join("\n")
+  def to_html
+    blocks.map(&:to_html).compact_blank.join.html_safe
   end
 
   def has_image?(url)

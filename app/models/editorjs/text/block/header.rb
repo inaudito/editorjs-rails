@@ -10,7 +10,7 @@ class Editorjs::Text::Block::Header < Editorjs::Text::Block
     @level = @data["level"]
   end
 
-  def to_markdown
-    ["#" * @level, @text].join(" ")
+  def to_html
+    content_tag("h#{@level}", @text)
   end
 end

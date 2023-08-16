@@ -9,7 +9,7 @@ class Editorjs::Text::Block::Paragraph < Editorjs::Text::Block
     @text = @data["text"]
   end
 
-  def to_markdown
-    helpers.tag.p(@text.html_safe)
+  def to_html
+    tag.p(@text.html_safe)
   end
 end
