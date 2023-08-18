@@ -7,7 +7,7 @@ class Editorjs::Text < Editorjs::ApplicationRecord
   has_many_attached :images
 
   serialize :content, Editorjs::Text::Content
-  delegate :to_h, :as_json, :to_json, :to_html, to: :content
+  delegate :to_h, :as_json, :to_json, :to_html, :empty?, to: :content
 
   after_save :cleanup!, if: :saved_change_to_content?
 

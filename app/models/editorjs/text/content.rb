@@ -29,6 +29,7 @@ class Editorjs::Text::Content
 
   attr_reader :time, :blocks, :version
   delegate :to_h, :as_json, :to_json, to: :@options
+  delegate :empty?, to: :@blocks
 
   def self.block_types
     @block_types ||= {}.with_indifferent_access
