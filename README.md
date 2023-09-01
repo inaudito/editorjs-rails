@@ -57,12 +57,12 @@ Use `to_html` to render your content:
 
 ## Adding plugins
 
-First, define `EditorJS.Rails.tools` following the [Editor.js convention](https://editorjs.io/configuration/):
+First, define `window.EditorJS.Rails.tools` following the [Editor.js convention](https://editorjs.io/configuration/):
 
 ```js
 import "@editorjs/paragraph";
 
-EditorJS.Rails = {
+window.EditorJS.Rails = {
   tools: {
     paragraph: Paragraph
   }

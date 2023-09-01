@@ -6,7 +6,8 @@ import "@editorjs/quote";
 import "@editorjs/delimiter";
 import "@sotaproject/strikethrough";
 
-if (!EditorJS.Rails) { EditorJS.Rails = { tools: {} } }
+if (!window.EditorJS) { window.EditorJS = {} }
+if (!window.EditorJS.Rails) { window.EditorJS.Rails = { tools: {} } }
 
 document.querySelectorAll(".editorjs").forEach(el => {
   const input = el.parentElement.querySelector(`#${el.dataset.input}`);
@@ -39,7 +40,7 @@ document.querySelectorAll(".editorjs").forEach(el => {
       quote: Quote,
       delimiter: Delimiter,
       strikethrough: Strikethrough,
-      ...EditorJS.Rails.tools,
+      ...window.EditorJS.Rails.tools,
     },
     holder: el,
     data,
