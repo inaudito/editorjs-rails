@@ -4,6 +4,7 @@ import "@editorjs/image";
 import "@editorjs/nested-list";
 import "@editorjs/quote";
 import "@editorjs/delimiter";
+import "@sotaproject/strikethrough";
 
 if (!EditorJS.Rails) { EditorJS.Rails = { tools: {} } }
 
@@ -37,6 +38,7 @@ document.querySelectorAll(".editorjs").forEach(el => {
       list: NestedList,
       quote: Quote,
       delimiter: Delimiter,
+      strikethrough: Strikethrough,
       ...EditorJS.Rails.tools,
     },
     holder: el,
