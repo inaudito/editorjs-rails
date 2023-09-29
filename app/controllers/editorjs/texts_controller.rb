@@ -27,7 +27,8 @@ class Editorjs::TextsController < Editorjs::ApplicationController
 
   def attach_image(uploaded_file)
     if @text.images.attach(uploaded_file)
-      @text.images.order(created_at: :desc).take&.url
+      image = @text.images.order(created_at: :desc).take
+      Rails.application.routes.url_helpers.url_for(image) if image.present?
     end
   end
 

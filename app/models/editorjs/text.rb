@@ -15,7 +15,8 @@ class Editorjs::Text < Editorjs::ApplicationRecord
 
   def cleanup!
     images.each do |attachment|
-      attachment.destroy unless content.has_image?(attachment.url)
+      url = Rails.application.routes.url_helpers.url_for(attachment)
+      attachment.destroy unless content.has_image?(url)
     end
   end
 end
