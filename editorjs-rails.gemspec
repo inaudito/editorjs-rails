@@ -16,5 +16,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rails", ">= 7.0.4.3"
   spec.add_dependency "addressable", "~> 2.8"
-  spec.add_dependency "faraday", "~> 1.8"
+  spec.add_dependency "faraday", "~> 2.10"
 end
