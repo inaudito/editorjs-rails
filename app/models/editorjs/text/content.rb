@@ -35,8 +35,17 @@ class Editorjs::Text::Content
     @block_types ||= {}.with_indifferent_access
   end
 
+  def block_types
+    @block_types ||= self.class.block_types
+  end
+
   def self.register_block_type(type, klass)
     block_types[type] = klass
+  end
+
+  def with_block_types(**options)
+    @block_types = block_types.merge(options)
+    self
   end
 
   register_block_type :paragraph, Editorjs::Text::Block::Paragraph
@@ -48,7 +57,7 @@ class Editorjs::Text::Content
 
   def blocks
     @blocks.map do |options|
-      block_type = self.class.block_types[options["type"]] || Editorjs::Text::Block
+      block_type = block_types[options["type"]] || Editorjs::Text::Block
       block_type.new(**options)
     end
   end
