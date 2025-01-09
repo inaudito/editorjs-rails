@@ -27,7 +27,8 @@ class Editorjs::Text::Content
     @version = options["version"]
   end
 
-  attr_reader :time, :blocks, :version
+  attr_reader :time, :version
+
   delegate :to_h, :as_json, :to_json, to: :@options
   delegate :empty?, to: :@blocks
 
@@ -53,6 +54,7 @@ class Editorjs::Text::Content
   register_block_type :image, Editorjs::Text::Block::Image
   register_block_type :list, Editorjs::Text::Block::List
   register_block_type :quote, Editorjs::Text::Block::Quote
+  register_block_type :raw, Editorjs::Text::Block::Raw
   register_block_type :delimiter, Editorjs::Text::Block::Delimiter
 
   def blocks
