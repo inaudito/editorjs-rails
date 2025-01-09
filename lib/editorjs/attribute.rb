@@ -7,7 +7,7 @@ module Editorjs::Attribute
     def has_text(name)
       class_eval <<-CODE, __FILE__, __LINE__ + 1
         def #{name}
-          text_#{name} || create_text_#{name}
+          text_#{name} || build_text_#{name}
         end
 
         def #{name}?
