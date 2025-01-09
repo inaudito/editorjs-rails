@@ -98,4 +98,6 @@ Editorjs::Text::Content.register_block_type :paragraph, ParagraphBlock
 | `image` | `Editorjs::Text::Block::Image` | [`@editorjs/image`](https://github.com/editor-js/image) |
 | `list` | `Editorjs::Text::Block::List` | [`@editorjs/nested-list`](https://github.com/editor-js/nested-list) |
 | `quote` | `Editorjs::Text::Block::Quote` | [`@editorjs/quote`](https://github.com/editor-js/quote) |
+| `raw` | `Editorjs::Text::Block::Raw` | [`@editorjs/raw`](https://github.com/editor-js/raw) |
 | `delimiter` | `Editorjs::Text::Block::Delimiter` | [`@editorjs/delimiter`](https://github.com/editor-js/delimiter) |
+| `strikethrough` | | [`@sotaproject/strikethrough`](https://github.com/sotaproject/strikethrough) |

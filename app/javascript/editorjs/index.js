@@ -1,9 +1,10 @@
 import EditorJS from "@editorjs/editorjs";
-import "@editorjs/header";
-import "@editorjs/image";
-import "@editorjs/nested-list";
-import "@editorjs/quote";
-import "@editorjs/delimiter";
+import Header from "@editorjs/header";
+import ImageTool from "@editorjs/image";
+import NestedList from "@editorjs/nested-list";
+import Quote from "@editorjs/quote";
+import RawTool from "@editorjs/raw";
+import Delimiter from "@editorjs/delimiter";
 import "@sotaproject/strikethrough";
 
 if (!window.EditorJS) { window.EditorJS = {} }
@@ -17,7 +18,7 @@ document.querySelectorAll(".editorjs").forEach(el => {
 
   try {
     data = JSON.parse(input.value)
-  } catch(e) {
+  } catch (e) {
     console.error(e)
   }
 
@@ -38,6 +39,7 @@ document.querySelectorAll(".editorjs").forEach(el => {
       },
       list: NestedList,
       quote: Quote,
+      raw: RawTool,
       delimiter: Delimiter,
       strikethrough: Strikethrough,
       ...window.EditorJS.Rails.tools,
