@@ -33,6 +33,9 @@ document.querySelectorAll(".editorjs").forEach(el => {
             byUrl: el.dataset.uploadImageUrl,
           },
           additionalRequestData: {
+            record_type: el.dataset.recordType,
+            record_id: el.dataset.recordId,
+            name: el.dataset.name,
             authenticity_token: el.dataset.authenticityToken,
           },
         }

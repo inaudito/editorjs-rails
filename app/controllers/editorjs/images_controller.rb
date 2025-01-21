@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-class Editorjs::TextsController < Editorjs::ApplicationController
-  before_action :set_text, only: %i[upload_image]
+class Editorjs::ImagesController < Editorjs::ApplicationController
+  before_action :set_text, only: %i[create]
 
-  def upload_image
+  def create
     image_url = if params.key?(:image)
         attach_image(params[:image])
       elsif params.key?(:url)
@@ -49,6 +49,10 @@ class Editorjs::TextsController < Editorjs::ApplicationController
   end
 
   def set_text
-    @text = Editorjs::Text.find(params[:id])
+    @text = Editorjs::Text.find_or_create_by(text_params)
+  end
+
+  def text_params
+    params.permit(:record_type, :record_id, :name)
   end
 end

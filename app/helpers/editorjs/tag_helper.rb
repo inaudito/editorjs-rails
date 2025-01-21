@@ -14,10 +14,13 @@ module Editorjs
       options[:data] ||= {}
       options[:data][:input] ||= options.delete(:input)
       options[:data][:authenticity_token] ||= form_authenticity_token
-      options[:data][:upload_image_url] ||= Editorjs::Engine.routes.url_helpers.upload_image_path(value.try(:id))
+      options[:data][:record_type] = value.record_type
+      options[:data][:record_id] = value.record_id
+      options[:data][:name] = value.name
+      options[:data][:upload_image_url] = Editorjs::Engine.routes.url_helpers.images_path
 
       editor_tag = content_tag("div", "", options)
-      input_tag = hidden_field_tag(name, value.try(:to_json) || value, id: options[:data][:input], form: form)
+      input_tag = hidden_field_tag(name, value.to_json, id: options[:data][:input], form: form)
 
       input_tag + editor_tag
     end
