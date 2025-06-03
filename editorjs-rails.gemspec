@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   end
   spec.require_path = "lib"
 
-  spec.add_dependency "rails", ">= 7.1"
+  spec.add_dependency "rails", ">= 8.0.2"
   spec.add_dependency "addressable", "~> 2.8"
   spec.add_dependency "faraday", "~> 2.10"
 end

@@ -5,6 +5,11 @@ module Editorjs
     isolate_namespace Editorjs
     config.eager_load_namespaces << Editorjs
 
+    config.autoload_once_paths = %W(
+      #{root}/app/helpers
+      #{root}/app/models
+    )
+
     initializer "editorjs-rails.attribute" do
       ActiveSupport.on_load(:active_record) do
         include Editorjs::Attribute
